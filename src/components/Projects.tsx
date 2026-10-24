@@ -1,5 +1,6 @@
 import React from 'react';
 import { QrCode, Layers, Github } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface ProjectItem {
   id: string;
@@ -18,7 +19,7 @@ const PROJECTS: ProjectItem[] = [
     shortDescription:
       'A responsive assessment and quiz management platform featuring drag-and-drop question ordering, bulk CSV/Excel parsing, timer attempt limits, instant auto-scoring, and JWT-authenticated dashboards.',
     technologies: ['React', 'Redux', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
-    githubUrl: 'https://github.com/Dr1507',
+    githubUrl: PERSONAL_INFO.github,
   },
   {
     id: 'location-qr',
@@ -27,7 +28,7 @@ const PROJECTS: ProjectItem[] = [
     shortDescription:
       'A responsive React application that turns any address or Google Maps link into a scannable, downloadable QR code. Features glassmorphic styling, instant dynamic QR encoding, and a native Save As PNG export flow.',
     technologies: ['React.JS', 'JavaScript', 'qrcode.react', 'Tailwind CSS', 'Canvas API'],
-    githubUrl: 'https://github.com/Dr1507',
+    githubUrl: PERSONAL_INFO.github,
   },
 ];
 

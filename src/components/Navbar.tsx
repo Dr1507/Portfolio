@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -101,7 +102,7 @@ export const Navbar: React.FC = () => {
           {/* Right Social Icons */}
           <div className="hidden sm:flex items-center gap-4 text-[#94A3B8]">
             <a
-              href="https://github.com/Dr1507"
+              href={PERSONAL_INFO.github}
               target="_blank"
               rel="noreferrer"
               className="p-1.5 hover:text-[#00E5D4] transition-colors"
@@ -110,7 +111,7 @@ export const Navbar: React.FC = () => {
               <Github className="w-4 h-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/drashti-patel-48834724b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noreferrer"
               className="p-1.5 hover:text-[#00E5D4] transition-colors"
@@ -154,7 +155,7 @@ export const Navbar: React.FC = () => {
             ))}
             <div className="pt-2 border-t border-[#2D3740] flex items-center justify-around text-[#94A3B8]">
               <a
-                href="https://github.com/Dr1507"
+                href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 hover:text-[#00E5D4]"
@@ -162,7 +163,7 @@ export const Navbar: React.FC = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/drashti-patel-48834724b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 hover:text-[#00E5D4]"
