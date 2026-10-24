@@ -1,5 +1,5 @@
 import React from 'react';
-import { PERSONAL_INFO, FEATURED_PROJECTS, SKILL_CATEGORIES, EXPERIENCE_TIMELINE } from '../data/portfolioData';
+import { PERSONAL_INFO, SKILL_CATEGORIES, EXPERIENCE_TIMELINE } from '../data/portfolioData';
 import { X, Printer, Download, Mail, Github, Linkedin, MapPin, CheckCircle2 } from 'lucide-react';
 
 interface ResumeModalProps {
@@ -15,22 +15,22 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#070B16]/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl bg-[#0B1020] border border-[#232F54] rounded-2xl shadow-[0_0_50px_rgba(124,58,237,0.25)] overflow-hidden my-auto max-h-[92vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-4xl bg-[#1B2025] border border-[#2D3740] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         
         {/* Top Control Bar */}
-        <div className="p-4 bg-[#11182E] border-b border-[#232F54] flex items-center justify-between gap-4 shrink-0">
+        <div className="p-4 bg-[#252D34] border-b border-[#2D3740] flex items-center justify-between gap-4 shrink-0">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#A78BFA] shadow-[0_0_8px_rgba(167,139,250,0.8)]" />
-            <span className="font-mono text-xs text-[#F8FAFC] font-semibold">
-              Resume // Drashti Patel — Full Stack MERN Developer
+            <span className="w-2.5 h-2.5 rounded-full bg-[#00E5D4] shadow-[0_0_8px_#00E5D4]" />
+            <span className="font-mono text-xs text-white font-semibold">
+              Resume // Drashti Patel — MERN Stack Developer
             </span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] hover:brightness-110 text-xs font-bold uppercase tracking-wider text-white transition-all cursor-pointer shadow-[0_0_15px_rgba(124,58,237,0.4)]"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#00E5D4] text-[#14181C] hover:bg-[#14F5E4] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(0,229,212,0.3)]"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / Save PDF</span>
@@ -38,7 +38,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-[#1A2342] text-[#94A3B8] hover:text-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg bg-[#20272E] text-[#94A3B8] hover:text-white transition-colors cursor-pointer"
               aria-label="Close resume preview"
             >
               <X className="w-4 h-4" />
@@ -47,131 +47,89 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Resume Printable Body */}
-        <div className="p-6 sm:p-10 overflow-y-auto space-y-8 bg-[#0B1020] text-[#CBD5E1] text-xs sm:text-sm">
+        <div className="p-6 sm:p-10 overflow-y-auto space-y-8 bg-[#1B2025] text-[#CBD5E1] text-xs sm:text-sm">
           
           {/* Resume Header */}
-          <div className="border-b border-[#232F54] pb-6">
+          <div className="border-b border-[#2D3740] pb-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
                 <h1 className="font-display text-3xl font-black text-white tracking-tight">
                   {PERSONAL_INFO.name}
                 </h1>
-                <p className="font-mono text-xs text-[#A78BFA] mt-1 font-semibold uppercase tracking-wider">
-                  {PERSONAL_INFO.title} · Frontend Specialist
+                <p className="font-mono text-xs text-[#00E5D4] mt-1 font-semibold uppercase tracking-wider">
+                  {PERSONAL_INFO.title} · MSc IT Graduate
+                </p>
+                <p className="text-xs text-[#94A3B8] mt-2 max-w-xl leading-relaxed">
+                  {PERSONAL_INFO.bio}
                 </p>
               </div>
 
-              <div className="text-left sm:text-right space-y-1 font-mono text-xs text-[#94A3B8]">
-                <div>{PERSONAL_INFO.email}</div>
-                <div>{PERSONAL_INFO.location}</div>
-                <div>github.com/drashtipatel · linkedin.com/in/drashtipatel</div>
-              </div>
-            </div>
-
-            <p className="mt-4 text-xs text-[#94A3B8] leading-relaxed">
-              {PERSONAL_INFO.bio}
-            </p>
-          </div>
-
-          {/* Education Section */}
-          <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-[#A78BFA] font-bold border-b border-[#232F54] pb-1.5">
-              Education
-            </h2>
-            <div className="flex justify-between items-start gap-4">
-              <div>
-                <h3 className="font-bold text-white text-sm">
-                  Master of Science in Information Technology (MSc IT)
-                </h3>
-                <p className="text-xs text-[#94A3B8]">
-                  Gujarat, India · Specialized in Advanced Web Architectures & Database Systems
-                </p>
-              </div>
-              <span className="font-mono text-xs text-[#A78BFA] font-semibold whitespace-nowrap">
-                Graduated: July 2026
-              </span>
-            </div>
-          </div>
-
-          {/* Professional Experience Section */}
-          <div className="space-y-4">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-[#A78BFA] font-bold border-b border-[#232F54] pb-1.5">
-              Professional Experience
-            </h2>
-
-            {EXPERIENCE_TIMELINE.filter(e => e.type === 'internship').map((exp) => (
-              <div key={exp.id} className="space-y-2">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                  <div>
-                    <h3 className="font-bold text-white text-sm">
-                      {exp.title}
-                    </h3>
-                    <p className="text-xs text-[#94A3B8] font-mono">
-                      {exp.company} · {exp.location}
-                    </p>
-                  </div>
-                  <span className="font-mono text-xs text-[#94A3B8]">
-                    {exp.period} ({exp.duration})
-                  </span>
+              <div className="space-y-1 font-mono text-xs text-[#94A3B8] sm:text-right">
+                <div className="flex items-center sm:justify-end gap-1.5">
+                  <Mail className="w-3.5 h-3.5 text-[#00E5D4]" />
+                  <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-[#00E5D4]">
+                    {PERSONAL_INFO.email}
+                  </a>
                 </div>
-
-                <ul className="space-y-1.5 text-xs text-[#CBD5E1] list-disc list-inside">
-                  {exp.highlights.map((h, i) => (
-                    <li key={i}>{h}</li>
-                  ))}
-                </ul>
+                <div className="flex items-center sm:justify-end gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#00E5D4]" />
+                  <span>{PERSONAL_INFO.location}</span>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Featured Key Projects */}
+          {/* Education & Internship Section */}
           <div className="space-y-4">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-[#A78BFA] font-bold border-b border-[#232F54] pb-1.5">
-              Key Engineering Projects
+            <h2 className="font-display text-base font-bold text-white uppercase tracking-wider border-b border-[#2D3740] pb-2 text-[#00E5D4]">
+              Experience & Education
             </h2>
 
-            <div className="space-y-4">
-              {FEATURED_PROJECTS.map((proj) => (
-                <div key={proj.id} className="space-y-1">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="font-bold text-white text-sm">
-                      {proj.title} <span className="font-normal text-xs text-[#94A3B8]">({proj.category})</span>
+            <div className="space-y-6">
+              {EXPERIENCE_TIMELINE.map((item) => (
+                <div key={item.id} className="space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <h3 className="font-display font-bold text-white text-sm">
+                      {item.title} <span className="font-normal text-[#94A3B8]">| {item.company}</span>
                     </h3>
-                    <span className="font-mono text-[11px] text-[#A78BFA]">
-                      {proj.technologies.slice(0, 4).join(', ')}
+                    <span className="font-mono text-xs text-[#00E5D4]">
+                      {item.period}
                     </span>
                   </div>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed">
-                    {proj.description}
-                  </p>
+                  <ul className="space-y-1 pl-4 list-disc text-xs text-[#94A3B8]">
+                    {item.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Technical Skills Summary */}
-          <div className="space-y-3">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-[#A78BFA] font-bold border-b border-[#232F54] pb-1.5">
-              Technical Core Competencies
+          {/* Core Technical Competencies */}
+          <div className="space-y-4">
+            <h2 className="font-display text-base font-bold text-white uppercase tracking-wider border-b border-[#2D3740] pb-2 text-[#00E5D4]">
+              Technical Skills
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-[#11182E] border border-[#232F54]">
-                <strong className="text-white block mb-1">Frontend:</strong>
-                <span className="text-[#94A3B8]">React.js, JavaScript (ES6+), Redux Toolkit, Tailwind CSS, HTML5, CSS3</span>
-              </div>
-              <div className="p-3 rounded-xl bg-[#11182E] border border-[#232F54]">
-                <strong className="text-white block mb-1">Backend:</strong>
-                <span className="text-[#94A3B8]">Node.js, Express.js, RESTful APIs, JWT Authentication, MVC Pattern</span>
-              </div>
-              <div className="p-3 rounded-xl bg-[#11182E] border border-[#232F54]">
-                <strong className="text-white block mb-1">Databases:</strong>
-                <span className="text-[#94A3B8]">MongoDB, Mongoose ODM, Document Modeling, Aggregations</span>
-              </div>
-              <div className="p-3 rounded-xl bg-[#11182E] border border-[#232F54]">
-                <strong className="text-white block mb-1">Developer Tools:</strong>
-                <span className="text-[#94A3B8]">Git, GitHub, npm, Postman, VS Code, Vite</span>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SKILL_CATEGORIES.map((cat) => (
+                <div key={cat.title} className="p-3.5 rounded-xl bg-[#252D34] border border-[#2D3740]">
+                  <h4 className="font-display font-semibold text-white text-xs mb-2">
+                    {cat.title}
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cat.skills.map((s) => (
+                      <span
+                        key={s.name}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1B2025] text-[#CBD5E1] border border-[#2D3740]"
+                      >
+                        {s.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

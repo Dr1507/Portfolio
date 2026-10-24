@@ -4,13 +4,13 @@
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-canvas: #0B1020;
-  --color-surface: #11182E;
-  --color-surface-hover: #17213F;
-  --color-surface-border: #232F54;
-  --color-royal-purple: #7C3AED;
-  --color-electric-violet: #A78BFA;
-  --color-soft-white: #F8FAFC;
+  --color-canvas: #1B2025;
+  --color-canvas-dark: #14181C;
+  --color-panel: #252D34;
+  --color-panel-card: #20272E;
+  --color-accent: #00E5D4;
+  --color-accent-hover: #14F5E4;
+  --color-border: #2D3740;
 }
 
 :root {
@@ -18,9 +18,10 @@
 }
 
 body {
-  background-color: #0B1020;
+  background-color: #1B2025;
   color: #F8FAFC;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -31,51 +32,53 @@ code, pre, .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Midnight Ambient Gradients */
-.bg-midnight-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(11, 16, 32, 0) 50%),
-              radial-gradient(circle at 100% 50%, rgba(167, 139, 250, 0.08) 0%, rgba(11, 16, 32, 0) 50%),
-              #0B1020;
+/* Reference Theme Glows & Shadows */
+.glow-accent {
+  box-shadow: 0 0 25px rgba(0, 229, 212, 0.35);
 }
 
-/* Subtle Midnight Mesh Grid */
-.bg-midnight-grid {
+.glow-accent-lg {
+  box-shadow: 0 0 45px rgba(0, 229, 212, 0.45);
+}
+
+.text-accent-glow {
+  text-shadow: 0 0 16px rgba(0, 229, 212, 0.6);
+}
+
+/* Glassmorphism with deep navy/charcoal */
+.panel-dark {
+  background: #252D34;
+  border: 1px solid #2D3740;
+}
+
+.card-dark {
+  background: #20272E;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-dark:hover {
+  border-color: rgba(0, 229, 212, 0.4);
+}
+
+/* Topographic Contour Lines SVG Pattern for About Me & Backgrounds */
+.bg-topo-pattern {
+  background-color: #1B2025;
+  background-image: radial-gradient(circle at 50% 20%, rgba(0, 229, 212, 0.04) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600' opacity='0.09'%3E%3Cpath d='M300,50 C420,50 520,130 520,250 C520,380 400,520 260,520 C140,520 60,420 60,300 C60,160 160,50 300,50 Z' fill='none' stroke='%2300E5D4' stroke-width='1.2' stroke-dasharray='4 3'/%3E%3Cpath d='M300,90 C390,90 470,160 470,250 C470,350 380,470 270,470 C170,470 100,390 100,300 C100,190 190,90 300,90 Z' fill='none' stroke='%2300E5D4' stroke-width='1'/%3E%3Cpath d='M300,130 C370,130 430,190 430,260 C430,340 350,430 260,430 C180,430 140,360 140,290 C140,210 210,130 300,130 Z' fill='none' stroke='%2300E5D4' stroke-width='1.2' stroke-dasharray='6 4'/%3E%3Cpath d='M300,170 C350,170 390,210 390,270 C390,330 330,390 260,390 C200,390 170,340 170,280 C170,220 230,170 300,170 Z' fill='none' stroke='%2300E5D4' stroke-width='1'/%3E%3Cpath d='M295,210 C330,210 360,240 360,280 C360,320 310,360 265,360 C220,360 200,320 200,280 C200,240 250,210 295,210 Z' fill='none' stroke='%2300E5D4' stroke-width='1.2' stroke-dasharray='3 3'/%3E%3Cpath d='M290,250 C310,250 330,265 330,285 C330,305 300,325 270,325 C240,325 230,305 230,285 C230,265 265,250 290,250 Z' fill='none' stroke='%2300E5D4' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 600px 600px;
+}
+
+/* Subtle Grid Background */
+.bg-charcoal-grid {
   background-image: 
-    linear-gradient(to right, rgba(167, 139, 250, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 139, 250, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-.bg-midnight-dots {
-  background-image: radial-gradient(rgba(167, 139, 250, 0.15) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* Glassmorphism Card Utilities */
-.glass-card {
-  background: rgba(17, 24, 46, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(167, 139, 250, 0.15);
-}
-
-.glass-card:hover {
-  border-color: rgba(167, 139, 250, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.25);
-}
-
-.glass-card-interactive {
-  background: rgba(17, 24, 46, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(167, 139, 250, 0.18);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card-interactive:hover {
-  transform: translateY(-2px);
-  border-color: rgba(167, 139, 250, 0.5);
-  box-shadow: 0 15px 35px -10px rgba(124, 58, 237, 0.3);
+/* Reference card corner curvature (asymmetric organic leaf shape from screenshot) */
+.reference-card-shape {
+  border-radius: 4rem 1.5rem 1.5rem 1.5rem;
 }
 
 /* Custom Scrollbar */
@@ -84,43 +87,14 @@ code, pre, .font-mono {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B1020;
+  background: #14181C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #232F54;
+  background: #2D3740;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
-}
-
-/* Purple & Violet Glow Utilities */
-.glow-purple-sm {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
-}
-
-.glow-purple-md {
-  box-shadow: 0 0 35px rgba(124, 58, 237, 0.45);
-}
-
-.glow-violet-sm {
-  box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+  background: #00E5D4;
 }

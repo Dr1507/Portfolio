@@ -58,25 +58,25 @@ export const CustomCursor: React.FC = () => {
     <>
       {/* Outer subtle glow ring */}
       <div
-        className="pointer-events-none fixed z-50 transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#A78BFA]/50 mix-blend-screen"
+        className="pointer-events-none fixed z-50 transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00E5D4]/60 mix-blend-screen"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
           width: isHovering ? '44px' : '26px',
           height: isHovering ? '44px' : '26px',
-          backgroundColor: isHovering ? 'rgba(124, 58, 237, 0.18)' : 'transparent',
-          boxShadow: isHovering ? '0 0 20px rgba(167, 139, 250, 0.5)' : 'none',
+          backgroundColor: isHovering ? 'rgba(0, 229, 212, 0.18)' : 'transparent',
+          boxShadow: isHovering ? '0 0 20px rgba(0, 229, 212, 0.5)' : 'none',
         }}
       />
       {/* Center dot */}
       <div
-        className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#A78BFA]"
+        className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00E5D4]"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
           width: isHovering ? '6px' : '4px',
           height: isHovering ? '6px' : '4px',
-          boxShadow: '0 0 8px #7C3AED',
+          boxShadow: '0 0 8px #00E5D4',
         }}
       />
     </>

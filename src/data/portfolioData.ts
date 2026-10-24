@@ -2,14 +2,14 @@ import { Project, ShowcaseSite, SkillCategory, ExperienceItem } from '../types/p
 
 export const PERSONAL_INFO = {
   name: 'Drashti Patel',
-  title: 'Full Stack MERN Developer',
-  subtitle: 'Frontend Specialist & MERN Engineer',
+  title: 'Frontend Developer',
+  subtitle: 'React & Frontend Specialist',
   degree: 'MSc Information Technology',
   graduationDate: 'July 2026',
   experienceDuration: '6-Month MERN Stack Internship',
   email: 'drashti8042@gmail.com',
-  github: 'https://github.com/drashtipatel',
-  linkedin: 'https://linkedin.com/in/drashtipatel',
+  github: 'https://github.com/Dr1507',
+  linkedin: 'https://www.linkedin.com/in/drashti-patel-48834724b?utm_source=share_via&utm_content=profile&utm_medium=member_android',
   location: 'Ahmedabad / Remote, India',
   availability: 'Available for Full-time Roles & Contracts',
   bio: 'MSc IT graduate with six months of hands-on MERN Stack internship experience. Specialized in architecting scalable backend APIs with Node.js & Express, designing resilient MongoDB data models, and crafting high-performance, pixel-perfect user interfaces with React.js, Redux, and Tailwind CSS.',

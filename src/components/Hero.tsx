@@ -1,133 +1,144 @@
 import React from 'react';
-import { ArrowUpRight, Download, Sparkles, ChevronDown } from 'lucide-react';
-import { MernHeroVisual } from './MernHeroVisual';
+import { PERSONAL_INFO } from '../data/portfolioData';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
-interface HeroProps {
-  onOpenResume: () => void;
-  onExploreWork: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onOpenResume, onExploreWork }) => {
+export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-between pt-28 pb-12 overflow-hidden bg-midnight-grid bg-midnight-gradient">
-      
-      {/* Top Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#7C3AED]/15 blur-[140px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-[#A78BFA]/10 blur-[120px] pointer-events-none rounded-full" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section id="hero" className="relative pt-20 pb-8 overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#00E5D4]/5 blur-[120px] pointer-events-none rounded-full" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Large "Developer" Heading across the top - matching reference */}
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white inline-flex items-center gap-2">
+            Developer
+          </h1>
+          <div className="w-12 h-1 bg-[#00E5D4] mx-auto mt-2 rounded-full shadow-[0_0_12px_#00E5D4]" />
+        </div>
+
+        {/* Multi-Panel Grid Layout: Left Profile Badge Card, Middle Intro, Right Metric Pills */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center max-w-5xl mx-auto">
           
-          {/* Left Column: Typographic Narrative */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Qualification & Status Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#161F3B]/90 border border-[#232F54] text-xs font-mono text-[#E2E8F0] shadow-[0_0_15px_rgba(124,58,237,0.15)]">
-              <span className="w-2 h-2 rounded-full bg-[#A78BFA] shadow-[0_0_8px_#A78BFA] animate-pulse" />
-              <span>MSc IT Graduate | MERN Stack Developer</span>
+          {/* Panel 1: Profile ID Card */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="w-full max-w-[290px] bg-[#252D34] border border-[#2D3740] reference-card-shape p-5 shadow-2xl relative transition-all duration-300 hover:border-[#00E5D4]/40">
+              
+              {/* Profile Avatar */}
+              <div className="flex flex-col items-center text-center">
+                <div className="relative mb-3">
+                  <div className="w-20 h-20 rounded-full p-1 border-2 border-[#00E5D4] shadow-[0_0_15px_rgba(0,229,212,0.4)] bg-[#1B2025] flex items-center justify-center overflow-hidden">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-[#20272E] to-[#14181C] flex items-center justify-center text-white">
+                      <span className="font-display font-bold text-2xl tracking-tight text-[#00E5D4]">
+                        DP
+                      </span>
+                    </div>
+                  </div>
+                  {/* Status Indicator */}
+                  <span className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-[#00E5D4] border-2 border-[#252D34]" />
+                </div>
+
+                {/* Identity Name & Role: Frontend Developer */}
+                <h3 className="font-display text-lg font-bold text-white tracking-tight">
+                  {PERSONAL_INFO.name}
+                </h3>
+                <p className="text-xs font-mono text-[#00E5D4] mt-0.5 font-medium">
+                  Frontend Developer
+                </p>
+
+                {/* Email Direct Link */}
+                <div className="w-full mt-3 pt-3 border-t border-[#2D3740] flex items-center justify-center gap-2 text-xs font-mono text-[#94A3B8]">
+                  <Mail className="w-3.5 h-3.5 text-[#00E5D4] shrink-0" />
+                  <a
+                    href={`mailto:${PERSONAL_INFO.email}`}
+                    className="hover:text-white transition-colors truncate"
+                  >
+                    {PERSONAL_INFO.email}
+                  </a>
+                </div>
+
+                {/* Quick Social Badges on the Card */}
+                <div className="w-full mt-3 flex items-center justify-center gap-2 pt-3 border-t border-[#2D3740]">
+                  <a
+                    href={PERSONAL_INFO.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 py-1.5 px-3 rounded-xl bg-[#20272E] hover:bg-[#00E5D4] hover:text-[#14181C] text-white border border-[#2D3740] text-xs font-mono transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span>GitHub</span>
+                  </a>
+                  <a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 py-1.5 px-3 rounded-xl bg-[#20272E] hover:bg-[#00E5D4] hover:text-[#14181C] text-white border border-[#2D3740] text-xs font-mono transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <Linkedin className="w-3.5 h-3.5" />
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Panel 2: Center Narrative "Hey I'm Drashti, Frontend Developer" */}
+          <div className="lg:col-span-5 space-y-3 text-center lg:text-left">
+            <div className="font-mono text-xs text-[#00E5D4] flex items-center justify-center lg:justify-start gap-1">
+              <span>&lt;h1&gt;</span>
             </div>
 
-            {/* Oversized Bold Headline (Space Grotesk) */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold uppercase tracking-tight text-[#F8FAFC] leading-[1.08] text-balance">
-              I BUILD{' '}
-              <span className="bg-gradient-to-r from-[#A78BFA] via-[#C084FC] to-[#7C3AED] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(167,139,250,0.5)]">
-                DIGITAL EXPERIENCES
-              </span>{' '}
-              THAT MATTER.
-            </h1>
+            <div>
+              <p className="text-sm font-mono text-[#94A3B8] uppercase tracking-wider mb-1">
+                Hey
+              </p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                I&apos;m <span className="text-[#00E5D4] text-accent-glow">Drashti</span>,<br />
+                Frontend Developer
+              </h2>
+            </div>
 
-            {/* Lead Description (Inter) */}
-            <p className="text-base sm:text-lg text-[#94A3B8] max-w-xl font-normal leading-relaxed">
-              I transform ideas into modern, responsive, and scalable web applications using the MERN stack. Specialized in robust backend architectures, clean REST APIs, and high-performance React frontends.
+            <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed max-w-md mx-auto lg:mx-0">
+              I build fast, responsive, and pixel-perfect web interfaces with modern architecture. Specialized in creating interactive experiences using React, TypeScript, and Tailwind CSS.
             </p>
 
-            {/* Availability Indicator */}
-            <div className="flex items-center gap-3 pt-1 text-xs text-[#94A3B8]">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#131931] border border-[#232F54] shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-[#A78BFA]" />
-                <span className="text-[#F8FAFC] font-medium">Available for Full-time Roles & Contracts</span>
-              </div>
-              <span className="hidden sm:inline text-[#64748B]">·</span>
-              <span className="hidden sm:inline text-[#64748B]">Class of July 2026</span>
+            <div className="font-mono text-xs text-[#00E5D4] flex items-center justify-center lg:justify-start gap-1">
+              <span>&lt;/h1&gt;</span>
             </div>
-
-            {/* Call To Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-3">
-              <button
-                onClick={onExploreWork}
-                className="group flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#7C3AED] via-[#6D28D9] to-[#4F46E5] hover:from-[#6D28D9] hover:to-[#4338CA] active:scale-95 transition-all duration-200 rounded-xl shadow-[0_0_25px_rgba(124,58,237,0.45)] hover:shadow-[0_0_35px_rgba(167,139,250,0.65)] cursor-pointer border border-[#A78BFA]/30"
-              >
-                <span>Explore My Work</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
-
-              <button
-                onClick={onOpenResume}
-                className="group flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold tracking-wide text-[#F8FAFC] bg-[#161F3B]/80 hover:bg-[#1E294B] border border-[#232F54] hover:border-[#A78BFA]/50 active:scale-95 transition-all duration-200 rounded-xl cursor-pointer shadow-lg backdrop-blur-md"
-              >
-                <span>Download Resume</span>
-                <Download className="w-4 h-4 text-[#A78BFA] group-hover:translate-y-0.5 transition-transform" />
-              </button>
-            </div>
-
-            {/* Micro Experience Proof */}
-            <div className="pt-4 flex items-center gap-6 text-xs text-[#94A3B8]">
-              <div>
-                <span className="font-mono font-bold text-sm text-[#F8FAFC]">6 Mos</span>
-                <span className="block text-[11px] text-[#64748B]">MERN Internship</span>
-              </div>
-              <div className="h-6 w-px bg-[#232F54]" />
-              <div>
-                <span className="font-mono font-bold text-sm text-[#F8FAFC]">10+</span>
-                <span className="block text-[11px] text-[#64748B]">Live Projects</span>
-              </div>
-              <div className="h-6 w-px bg-[#232F54]" />
-              <div>
-                <span className="font-mono font-bold text-sm text-[#A78BFA]">MSc IT</span>
-                <span className="block text-[11px] text-[#64748B]">Postgraduate</span>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Column: Interactive Developer Architecture Console */}
-          <div className="lg:col-span-5">
-            <MernHeroVisual />
+          {/* Panel 3: Right Stacked Metric Badges matching reference */}
+          <div className="lg:col-span-2 flex flex-row lg:flex-col justify-center items-center gap-2.5">
+            <div className="bg-[#252D34] border border-[#2D3740] p-3 rounded-xl text-center w-28 shadow-lg">
+              <span className="font-mono text-xl font-bold text-[#00E5D4] block">
+                React
+              </span>
+              <span className="text-[11px] font-mono text-[#94A3B8] leading-tight block mt-1">
+                Frontend Focus
+              </span>
+            </div>
+
+            <div className="bg-[#252D34] border border-[#2D3740] p-3 rounded-xl text-center w-28 shadow-lg">
+              <span className="font-mono text-xl font-bold text-[#00E5D4] block">
+                6 Mos
+              </span>
+              <span className="text-[11px] font-mono text-[#94A3B8] leading-tight block mt-1">
+                Internship
+              </span>
+            </div>
+
+            <div className="bg-[#252D34] border border-[#2D3740] p-3 rounded-xl text-center w-28 shadow-lg">
+              <span className="font-mono text-xl font-bold text-[#00E5D4] block">
+                MSc
+              </span>
+              <span className="text-[11px] font-mono text-[#94A3B8] leading-tight block mt-1">
+                IT Degree
+              </span>
+            </div>
           </div>
 
         </div>
       </div>
-
-      {/* Subtle Scroll Down Cue */}
-      <div className="max-w-7xl mx-auto px-4 w-full flex justify-center pt-8 pb-4">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-1.5 text-xs text-[#64748B] hover:text-[#A78BFA] transition-colors group cursor-pointer"
-          aria-label="Scroll to About section"
-        >
-          <span className="font-mono text-[10px] tracking-widest uppercase">Scroll Down</span>
-          <ChevronDown className="w-4 h-4 animate-bounce group-hover:text-[#A78BFA]" />
-        </a>
-      </div>
-
-      {/* Scrolling Text Strip Marquee: BUILD • CREATE • INNOVATE • REPEAT */}
-      <div className="w-full bg-[#0E152B]/90 backdrop-blur-md border-y border-[#232F54] py-3.5 overflow-hidden select-none">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 font-display font-bold tracking-widest text-xs uppercase text-[#94A3B8]">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <React.Fragment key={i}>
-              <span className="hover:text-[#A78BFA] transition-colors">BUILD</span>
-              <span className="text-[#A78BFA] drop-shadow-[0_0_8px_rgba(167,139,250,0.8)]">✦</span>
-              <span className="hover:text-[#A78BFA] transition-colors">CREATE</span>
-              <span className="text-[#A78BFA] drop-shadow-[0_0_8px_rgba(167,139,250,0.8)]">✦</span>
-              <span className="hover:text-[#A78BFA] transition-colors">INNOVATE</span>
-              <span className="text-[#A78BFA] drop-shadow-[0_0_8px_rgba(167,139,250,0.8)]">✦</span>
-              <span className="hover:text-[#A78BFA] transition-colors">REPEAT</span>
-              <span className="text-[#A78BFA] drop-shadow-[0_0_8px_rgba(167,139,250,0.8)]">✦</span>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-
     </section>
   );
 };
